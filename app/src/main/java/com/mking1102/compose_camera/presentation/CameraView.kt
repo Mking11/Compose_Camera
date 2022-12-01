@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.example.samnotes.presentation.camera_view.presentation.component.CameraLauncher
+import com.mking1102.compose_camera.presentation.component.CameraLauncher
 import com.mking1102.compose_camera.camera.domain.models.CurrentCameraView
 import com.mking1102.compose_camera.presentation.component.PicturePreview
 

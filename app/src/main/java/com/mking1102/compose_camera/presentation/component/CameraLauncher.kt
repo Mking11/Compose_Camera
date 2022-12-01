@@ -1,4 +1,4 @@
-package com.example.samnotes.presentation.camera_view.presentation.component
+package com.mking1102.compose_camera.presentation.component
 
 import android.provider.MediaStore
 import androidx.camera.core.CameraSelector
@@ -26,7 +26,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mking1102.compose_camera.camera.domain.models.CameraEvents
-import com.mking1102.compose_camera.getCurrentDate
+import com.mking1102.compose_camera.camera.domain.utils.getCurrentDate
 import com.mking1102.compose_camera.presentation.CameraViewModel
 import java.util.concurrent.Executors
 

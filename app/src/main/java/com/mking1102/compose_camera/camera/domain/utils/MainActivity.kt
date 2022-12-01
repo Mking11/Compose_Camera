@@ -14,8 +14,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.core.app.ActivityCompat
 import androidx.navigation.compose.rememberNavController
-import com.mking1102.compose_camera.CameraNavigation
-import com.mking1102.compose_camera.LocalActivity
+import com.mking1102.compose_camera.presentation.navigation.CameraNavigation
 import com.mking1102.compose_camera.ui.theme.ComposeCameraTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,9 +26,6 @@ class MainActivity : ComponentActivity() {
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA,
     )
-
-
-
 
     private val newRequest =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
@@ -55,8 +51,6 @@ class MainActivity : ComponentActivity() {
                         CameraNavigation(navController = navController)
                     }
                 }
-                // A surface container using the 'background' color from the theme
-
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.mking1102.compose_camera
+package com.mking1102.compose_camera.camera.domain.utils
 
 import androidx.activity.ComponentActivity
 import androidx.compose.runtime.ProvidableCompositionLocal

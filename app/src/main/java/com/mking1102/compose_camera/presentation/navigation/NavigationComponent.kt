@@ -1,4 +1,4 @@
-package com.mking1102.compose_camera
+package com.mking1102.compose_camera.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.core.net.toUri
