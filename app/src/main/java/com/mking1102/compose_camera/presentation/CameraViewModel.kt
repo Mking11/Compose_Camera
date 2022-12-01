@@ -7,7 +7,6 @@ import android.util.Log
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.core.net.toFile
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.mking1102.compose_camera.camera.domain.models.CameraEvents
 import com.mking1102.compose_camera.camera.domain.models.CameraStates
@@ -22,12 +21,9 @@ import javax.inject.Inject
 @HiltViewModel
 class CameraViewModel
 @Inject
-constructor(
-    savedStateHandle: SavedStateHandle
-) : ViewModel() {
+constructor() : ViewModel() {
 
-
-    val _state = MutableStateFlow<CameraStates>(CameraStates())
+    private val _state = MutableStateFlow(CameraStates())
     val state: StateFlow<CameraStates> = _state
 
 
@@ -39,7 +35,7 @@ constructor(
                 try {
                     val file = picture?.toFile()
                     file?.delete()
-                }catch (e :Exception){
+                } catch (e: Exception) {
                     Log.e("exception", "handleEvents: ", e)
                 }
 
@@ -52,7 +48,9 @@ constructor(
                     it.copy(cameraEvents.uri, currentScreen = CurrentCameraView.Preview)
                 }
             }
-            is CameraEvents.HandleError -> {}
+            is CameraEvents.HandleError -> {
+                Log.e("ComposeCamera", "handleEvents: ", cameraEvents.exception)
+            }
             is CameraEvents.TakePicture -> {
                 takePhoto(
                     cameraEvents.outputDirectory,

@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.navigation.compose.rememberNavController
 import com.mking1102.compose_camera.CameraNavigation
 import com.mking1102.compose_camera.LocalActivity
-import com.mking1102.compose_camera.ui.theme.Compose_CameraTheme
+import com.mking1102.compose_camera.ui.theme.ComposeCameraTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,8 +40,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (!hasPermissions(this, *permissions)) {
+            requestPermissions()
+        }
         setContent {
-            Compose_CameraTheme {
+            ComposeCameraTheme {
                 CompositionLocalProvider(LocalActivity provides this) {
                     val navController = rememberNavController()
                     Surface(
